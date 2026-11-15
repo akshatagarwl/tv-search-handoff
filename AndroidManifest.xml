@@ -3,7 +3,10 @@
     <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="30" />
     <uses-feature android:name="android.software.leanback" android:required="false" />
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
-    <queries><package android:name="io.gh.reisxd.tizentube.cobalt" /></queries>
+    <queries>
+        <package android:name="io.gh.reisxd.tizentube.cobalt" />
+        <package android:name="io.gh.akshat.tizentube.cobalt" />
+    </queries>
     <application android:label="TizenTube voice search handoff" android:allowBackup="false">
         <service android:name=".SearchHandoffService" android:exported="true" android:label="TizenTube voice search handoff" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter><action android:name="android.accessibilityservice.AccessibilityService" /></intent-filter>

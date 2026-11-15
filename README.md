@@ -25,7 +25,7 @@ JDK 17, Android platform 34 and build-tools 34.0.0; no Gradle or third-party run
 
 Set `ANDROID_HOME`, `KEYSTORE_FILE`, and `KEYSTORE_PASSWORD`, then run `bash build.sh`. Use your own signing key. Generated APKs, signing material and passwords do not belong in Git.
 
-Install `tv-search-handoff.apk` with ADB and enable **TizenTube voice search handoff** in Android's Accessibility settings. Keep Google Assistant selected. Install official TizenTube Cobalt (`io.gh.reisxd.tizentube.cobalt`) first.
+Install `tv-search-handoff.apk` with ADB and enable **TizenTube voice search handoff** in Android's Accessibility settings. Keep Google Assistant selected. Install TizenTube Cobalt first. The personal PR-720 blocklist build (`io.gh.akshat.tizentube.cobalt`) is preferred when present; official Cobalt (`io.gh.reisxd.tizentube.cobalt`) remains the fallback. To roll back to official Cobalt, uninstall the personal build or rebuild with the preferred target set to the official package.
 
 Do not replace an existing enabled-accessibility-services list blindly. Preserve other services if enabling via ADB.
 

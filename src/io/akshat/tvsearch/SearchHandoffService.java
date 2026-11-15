@@ -17,7 +17,8 @@ import java.util.List;
 public final class SearchHandoffService extends AccessibilityService {
     private static final String GOOGLE = "com.google.android.katniss";
     private static final String QUERY_ID = GOOGLE + ":id/super_header";
-    private static final String TARGET = "io.gh.reisxd.tizentube.cobalt";
+    private static final String TARGET = "io.gh.akshat.tizentube.cobalt";
+    private static final String FALLBACK = "io.gh.reisxd.tizentube.cobalt";
     private final Handler handler = new Handler(Looper.getMainLooper());
     private boolean forwarded;
     private String lastQuery;
@@ -36,7 +37,7 @@ public final class SearchHandoffService extends AccessibilityService {
     }
 
     @Override public void onAccessibilityEvent(AccessibilityEvent event) {
-        if (TARGET.contentEquals(event.getPackageName())) {
+        if (TARGET.contentEquals(event.getPackageName()) || FALLBACK.contentEquals(event.getPackageName())) {
             forwarded = false;
             handler.removeCallbacks(inspect);
             return;
@@ -81,6 +82,7 @@ public final class SearchHandoffService extends AccessibilityService {
                                 .appendQueryParameter("search_query", query).build())
                         .setPackage(TARGET)
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                if (search.resolveActivity(getPackageManager()) == null) search.setPackage(FALLBACK);
                 if (search.resolveActivity(getPackageManager()) == null) {
                     forwarded = true;
                     Log.w("TvSearchHandoff", "TizenTube unavailable");
