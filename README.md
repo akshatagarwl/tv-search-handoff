@@ -25,7 +25,7 @@ JDK 17, Android platform 34 and build-tools 34.0.0; no Gradle or third-party run
 
 Set `ANDROID_HOME`, `KEYSTORE_FILE`, and `KEYSTORE_PASSWORD`, then run `bash build.sh`. Use your own signing key. Generated APKs, signing material and passwords do not belong in Git.
 
-Install `tv-search-handoff.apk` with ADB and enable **TizenTube voice search handoff** in Android's Accessibility settings. Keep Google Assistant selected. Install TizenTube Cobalt first. The personal PR-720 blocklist build (`io.gh.akshat.tizentube.cobalt`) is preferred when present; official Cobalt (`io.gh.reisxd.tizentube.cobalt`) remains the fallback. To roll back to official Cobalt, uninstall the personal build or rebuild with the preferred target set to the official package.
+Install `tv-search-handoff.apk` with ADB and enable **TizenTube voice search handoff** in Android's Accessibility settings. Keep Google Assistant selected. Install TizenTube Cobalt first. The personal PR-720 blocklist build (`io.gh.akshat.tizentube.cobalt`) is preferred when present; official Cobalt (`io.gh.reisxd.tizentube.cobalt`) remains the fallback. To roll back to official Cobalt without losing app data, disable the personal build in TV app settings if supported, or rebuild the handoff with the preferred target set to the official package. Do not uninstall or clear app data unless you explicitly accept losing its local data.
 
 Do not replace an existing enabled-accessibility-services list blindly. Preserve other services if enabling via ADB.
 
@@ -40,6 +40,15 @@ Interactive-window retrieval is necessary on this Sony because `getRootInActiveW
 ## Disable
 
 Turn off **TizenTube voice search handoff** in Accessibility. Google Assistant remains selected, and Cobalt remains installed. No root, firmware changes, system YouTube replacement or signature bypass is involved.
+
+## Related projects
+
+- [Android/iPhone setup preview](https://github.com/akshatagarwl/tv-setup)
+- [Public curated channel lists and builder](https://github.com/akshatagarwl/tv-channel-lists)
+- [Permission-free TV shortcut](https://github.com/akshatagarwl/tv-youtube-shortcut)
+- [TizenTube channel-filter fork](https://github.com/akshatagarwl/TizenTube/tree/feat/pr720-channel-block)
+
+Publishing or building these projects never changes an already-running TV session. Installation and permission changes need a separately approved setup window.
 
 ## License
 
