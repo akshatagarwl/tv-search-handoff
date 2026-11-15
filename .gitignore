@@ -1,0 +1,8 @@
+out/
+*.apk
+*.idsig
+*.jks
+*.keystore
+*.env
+local.properties
+.DS_Store
